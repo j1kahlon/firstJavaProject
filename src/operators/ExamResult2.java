@@ -14,8 +14,12 @@ public class ExamResult2 {
 		System.out.println("Enter Student's rollno");
 
 		int rollNo = sc.nextInt();
+		if (rollNo >= 1 && rollNo <= 60) {
 
-		System.out.println("Enter student's exam score");
+			System.out.println("Enter student's exam score");
+		} else {
+			System.out.println("Sorry, you are not able to check the exam result");
+		}
 
 		int examScore = sc.nextInt();
 
