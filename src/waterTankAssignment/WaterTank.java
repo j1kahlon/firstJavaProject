@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class WaterTank {
 	int tankCapacity = 100;
 	int bucketCapacity = 10;
-	int currentWaterLevel;
-
+	int breakpoint = 90;
 	Scanner sc = new Scanner(System.in);
 
 	/*
@@ -29,13 +28,13 @@ public class WaterTank {
 			} else if (buckets != 1) {
 				i--;
 			}
-			if (currentWaterLevel < tankCapacity && buckets == i) {
+			if (currentWaterLevel <= tankCapacity && buckets == i) {
 				currentWaterLevel += bucketCapacity;
 				System.out.println("Water level  " + currentWaterLevel + " litres");
 
 			}
 
-			if (currentWaterLevel == tankCapacity) {
+			if (breakpoint == currentWaterLevel) {
 
 				System.out.println(
 						"Stop water filling ,WaterTank will be overflow,the current level of water in tank is :"
