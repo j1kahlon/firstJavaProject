@@ -20,13 +20,21 @@ public class MainBanquet {
 		System.out.println("Enter tip :" + "$");
 		double tip = sc.nextDouble();
 		System.out.println("Enter number of Guests :");
-		double noOFGuests = sc.nextDouble();
-		Banquet banquet = new Banquet(bookingBaseCost, foodCost, beverages, foodTax, beverageTax, tip);
-		double totalBasecost = banquet.calculateBaseCost(bookingBaseCost, foodCost, beverages, tip);
-		double tax = banquet.calculateTax(bookingBaseCost);
-		double cess = banquet.calculateCess(noOFGuests, totalBasecost);
-		double totalCost = banquet.calculateTheTotalCost(totalBasecost, tax, cess);
-		System.out.println("Total cost: $ " + totalCost);
+		int noOFGuests = sc.nextInt();
+		if ((bookingBaseCost > 0) && (foodCost > 0) && (beverages > 0)) {
+			Banquet banquet = new Banquet(bookingBaseCost, foodCost, beverages, foodTax, beverageTax, tip);
+
+			double totalBasecost = banquet.calculateBaseCost(bookingBaseCost, foodCost, beverages, tip);
+			System.out.println("The total base cost is :" + totalBasecost);
+			double tax = banquet.calculateTax(bookingBaseCost);
+			System.out.println("Tax on base cost is :" + tax);
+			double cess = banquet.calculateCess(noOFGuests, totalBasecost);
+			System.out.println("Total cess is : " + cess);
+			double totalCost = banquet.calculateTheTotalCost(totalBasecost, tax, cess);
+			System.out.println("Total cost is : $ " + totalCost);
+		} else {
+			System.out.println("All values should be greater than 0.please provide valid inputs");
+		}
 		sc.close();
 
 	}
